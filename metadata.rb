@@ -1,12 +1,12 @@
-name             'dela-chef'
-maintainer       "dela-chef"
+name             'dela'
+maintainer       "Jim Dowling"
 maintainer_email "jdowling@kth.se"
 license          "Apache v2.0"
-description      'Installs/Configures/Runs dela-chef'
+description      'Installs/Configures/Runs dela'
 version          "0.1"
 
 recipe            "dela-chef::install", "Experiment setup for dela-chef"
-recipe            "dela-chef::experiment",  "configFile=; Experiment name: experiment"
+recipe            "dela-chef::default",  "configFile=; Experiment name: experiment"
 
 
 depends "kagent"
@@ -19,11 +19,11 @@ end
 
 
 
-attribute "dela-chef/group",
+attribute "dela/group",
 :description => "group parameter value",
 :type => "string"
 
-attribute "dela-chef/user",
+attribute "dela/user",
 :description => "user parameter value",
 :type => "string"
 
