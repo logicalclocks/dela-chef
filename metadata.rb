@@ -1,9 +1,9 @@
-name             'dela'
+name             "dela"
 maintainer       "Jim Dowling"
 maintainer_email "jdowling@kth.se"
 license          "Apache v2.0"
 description      'Installs/Configures/Runs dela'
-version          "0.1"
+version          "0.1.0"
 
 recipe            "dela-chef::install", "Experiment setup for dela-chef"
 recipe            "dela-chef::default",  "configFile=; Experiment name: experiment"
