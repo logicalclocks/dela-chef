@@ -9,9 +9,6 @@ recipe            "dela-chef::install", "Experiment setup for dela-chef"
 recipe            "dela-chef::default",  "configFile=; Experiment name: experiment"
 
 
-depends "kagent"
-
-
 
 %w{ ubuntu debian rhel centos }.each do |os|
   supports os
@@ -25,6 +22,10 @@ attribute "dela/group",
 
 attribute "dela/user",
 :description => "user parameter value",
+:type => "string"
+
+attribute "java/jdk_version",
+:description => "Version of Java to use (e.g., '7' or '8')",
 :type => "string"
 
 
