@@ -6,7 +6,7 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-export MAVEN_OPTS="-Xmx512m"
+export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
 BASE_DIR=`cd $1; pwd`
 echo "base dir: $BASE_DIR"
 
@@ -43,7 +43,7 @@ cd $BASE_DIR/build
 echo "cloning caracaldb.."
 git clone --progress $CARACAL_REPO caracaldb >>./$LOG  2>&1
 cd caracaldb
-git checkout --progress $CARACAL_BRANCH >>../$LOG  2>&1
+git checkout $CARACAL_BRANCH >>../$LOG  2>&1
 echo "building caracaldb.."
 mvn clean install -DskipTests >>../$LOG  2>&1
 #KAFKA
@@ -51,7 +51,7 @@ cd $BASE_DIR/build
 echo "cloning kafka-util.."
 git clone --progress $KAFKA_UTIL_REPO kafka-util >>$LOG  2>&1
 cd kafka-util
-git checkout --progress $KAFKA_BRANCH >>../$LOG  2>&1
+git checkout $KAFKA_BRANCH >>../$LOG  2>&1
 echo "building kafka-util.."
 mvn clean install -DskipTests >>../$LOG  2>&1
 #KAFKA
@@ -59,7 +59,7 @@ cd $BASE_DIR/build
 echo "cloning ktoolbox.."
 git clone --progress $KTOOLBOX_REPO ktoolbox >>$LOG  2>&1
 cd ktoolbox
-git checkout --progress $KTOOLBOX_BRANCH >>../$LOG  2>&1
+git checkout $KTOOLBOX_BRANCH >>../$LOG  2>&1
 echo "building ktoolbox.."
 mvn clean install -DskipTests >>../$LOG  2>&1
 #NATTRAVERSAL
@@ -67,7 +67,7 @@ cd $BASE_DIR/build
 echo "cloning nattraversal.."
 git clone --progress $NATTRAVERSAL_REPO nat-traversal >>$LOG  2>&1
 cd nat-traversal
-git checkout --progress $NATTRAVERSAL_BRANCH >>../$LOG  2>&1
+git checkout $NATTRAVERSAL_BRANCH >>../$LOG  2>&1
 echo "building nattraversal.."
 mvn clean install -DskipTests >>../$LOG  2>&1
 #GVOD
@@ -75,7 +75,7 @@ cd $BASE_DIR/build
 echo "cloning gvod.."
 git clone --progress $GVOD_REPO gvod >>$LOG  2>&1
 cd gvod
-git checkout --progress $GVOD_BRANCH >>../$LOG  2>&1
+git checkout $GVOD_BRANCH >>../$LOG  2>&1
 echo "building gvod.."
 mvn clean install -DskipTests >>../$LOG  2>&1
 #DOZY
@@ -83,7 +83,7 @@ cd $BASE_DIR/build
 echo "cloning dozy.."
 git clone --progress $DOZY_REPO dozy >>$LOG  2>&1
 cd dozy
-git checkout --progress $DOZY_BRANCH >>../$LOG  2>&1
+git checkout $DOZY_BRANCH >>../$LOG  2>&1
 echo "building dozy.."
 mvn clean install -DskipTests >>../$LOG  2>&1
 #final fat jar
