@@ -1,0 +1,85 @@
+#!/bin/sh
+#
+# Startup script for dela
+#
+### BEGIN INIT INFO
+# Provides:                     dela*
+# Required-Start:                 
+# Should-Start:                 
+# Required-Stop:                  
+# Default-Start:                2 3 4 5
+# Default-Stop:                 0 1 6
+# Short-Description:            start and stop dela-*
+# Description:                  Start/Stop/Restart dela
+### END INIT INFO
+
+# Variables
+
+START_PROG="<%= node.dela.home %>/bin/start.sh"  
+STOP_PROG="<%= node.dela.home %>/bin/stop.sh"  
+EXEC_WITH_USER="su <%= node.dela.user %> -c"
+
+start() {
+  ulimit -n 65000 2>&1 > /dev/null
+  $EXEC_WITH_USER "$START_PROG"
+  return $?
+}
+
+stop() {
+  $EXEC_WITH_USER "$STOP_PROG"
+  return $?
+}
+
+restart() {
+  $EXEC_WITH_USER "$STOP_PROG"
+  $EXEC_WITH_USER "$START_PROG"
+  return $?
+}
+
+status() {
+  res=1
+  PID_FILE=<%= node.dela.pid_file %>
+  if [ -f $PID_FILE ] ; then
+     PID=`cat $PID_FILE`
+     kill -0 $PID
+     res=$?
+  fi
+  if [ $res -eq 0 ] ; then
+   echo "dela($PID) is running"
+  else
+   echo "dela is not running"
+  fi
+  return $res
+}
+
+
+# user-supplied parameter to stop/start/restart process.
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart)
+    restart
+    ;;
+  reload)
+    restart
+    ;;
+  status)
+    status
+    ;;
+  -h|--help)
+    echo ""
+    echo "usage: <prog> start|stop|restart|status"
+    echo ""
+    exit 0
+    ;;
+  *)
+    echo $"Usage: <prog> {start|stop|restart|status}"
+    exit 1
+  esac
+
+
+exit $?

@@ -1,0 +1,29 @@
+system {
+    seed = <%= node.dela.seed %>
+    port = <%= node.dela.port %>
+    id = <%= <%= node.dela.id %>
+}
+network {
+   ipType = "PRIVATE"
+}
+stun {
+    client {
+        address {
+            port1 = <%= node.dela.stun_port1 %>
+            port2 = <%= node.dela.stun_port2 %>
+        }
+    }
+}
+nat.detection.stunView {
+    server {
+        ip = "<%= @stun1_ip %>"
+        port1 = <%= node.dela.stun_port1 %>
+        port2 = <%= node.dela.stun_port2 %>
+        id = 1
+    }
+    partner {
+        ip = "<%= @stun2_ip %>"
+        port1 = <%= node.dela.stun_port1 %>
+        port2 = <%= node.dela.stun_port2 %>
+        id = 2
+    }

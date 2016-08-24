@@ -5,8 +5,8 @@ license          "Apache v2.0"
 description      'Installs/Configures/Runs dela'
 version          "0.1.0"
 
-recipe            "dela-chef::install", "Experiment setup for dela-chef"
-recipe            "dela-chef::default",  "configFile=; Experiment name: experiment"
+recipe            "dela::install", "Install dela binaries"
+recipe            "dela::default",  "Configures and starts the dela server"
 
 
 
@@ -14,7 +14,7 @@ recipe            "dela-chef::default",  "configFile=; Experiment name: experime
   supports os
 end
 
-
+depends "kagent"
 
 attribute "dela/group",
 :description => "group parameter value",
@@ -28,4 +28,14 @@ attribute "java/jdk_version",
 :description => "Version of Java to use (e.g., '7' or '8')",
 :type => "string"
 
+attribute "dela/id",
+:description => "id for the dela instance. Randomly generated, but can be ovverriden here.",
+:type => "string"
 
+attribute "dela/seed",
+:description => "seed for the dela instance. Randomly generated, but can be ovverriden here.",
+:type => "string"
+
+attribute "dela/seed",
+:description => "seed for the dela instance. Randomly generated, but can be ovverriden here.",
+:type => "string"
