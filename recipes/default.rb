@@ -30,8 +30,8 @@ template "#{node.dela.home}/conf/application.conf" do
   })
 end
 
-template "#{node.dela.home}/conf/config.yml.erb" do
-  source "application.conf.erb" 
+template "#{node.dela.home}/conf/config.yml" do
+  source "config.yml.erb" 
   owner node.dela.user
   group node.dela.group
   mode 0750

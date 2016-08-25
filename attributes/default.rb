@@ -18,7 +18,7 @@ default.dela.scripts               = %w{ start.sh stop.sh}
 
 
 default.dela.logs                  = node.dela.base_dir + "/dela.log"
-default.dela.log_level             = "INFO"
+default.dela.log_level             = "WARN"
 
 default.dela.pid_file              = "/tmp/dela.pid"
 

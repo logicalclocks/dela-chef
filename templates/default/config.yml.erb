@@ -1,6 +1,6 @@
 http:
-  port: <% node.dela.http_port %>
-  adminPort: <% node.dela.admin_port %>
+  port: <%= node.dela.http_port %>
+  adminPort: <%= node.dela.admin_port %>
   gzip:
     enabled: false
 
@@ -42,6 +42,6 @@ logging:
 
   file:
       enabled: true
-      currentLogFilename: dozy.log
-      archivedLogFilenamePattern: dozy-%d.log
+      currentLogFilename: <%= node.dela.logs %>
+      archivedLogFilenamePattern: <%= node.dela.base_dir %>/dela-%d.log
       archivedFileCount: 10

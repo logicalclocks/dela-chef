@@ -37,6 +37,6 @@ attribute "dela/seed",
 :description => "seed for the dela instance. Randomly generated, but can be ovverriden here.",
 :type => "string"
 
-attribute "dela/seed",
-:description => "seed for the dela instance. Randomly generated, but can be ovverriden here.",
+attribute "dela/log_level",
+:description => "Default: WARN. Can be INFO or DEBUG or TRACE or ERROR.",
 :type => "string"
