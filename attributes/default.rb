@@ -25,6 +25,8 @@ default.dela.pid_file              = "/tmp/dela.pid"
 default.dela.stun_servers          = ["193.10.64.107","193.10.64.85"]
 default.dela.stun_port1            = 41002
 default.dela.stun_port2            = 42002
+default.dela.stun_client_port1     = node.dela.stun_port1
+default.dela.stun_client_port2     = node.dela.stun_port2
 
 default.dela.id                    = nil
 default.dela.seed                  = nil
