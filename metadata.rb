@@ -7,7 +7,7 @@ version          "0.1.0"
 
 recipe            "dela::install", "Install dela binaries"
 recipe            "dela::default",  "Configures and starts the dela server"
-
+recipe            "dela::purge",  "Stops the dela server and deletes all its files"
 
 
 %w{ ubuntu debian rhel centos }.each do |os|
