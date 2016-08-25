@@ -15,6 +15,7 @@ recipe            "dela::default",  "Configures and starts the dela server"
 end
 
 depends "kagent"
+depends "java"
 
 attribute "dela/group",
 :description => "group parameter value",

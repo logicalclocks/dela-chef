@@ -1,8 +1,8 @@
 
-default.dela.version               = "0.0.1"
+default.dela.version               = "0.0.1-SNAPSHOT"
 default.dela.group                 = "dela"
 default.dela.user                  = "dela"
-default.dela.url                   = "http://snurran.sics.se/hops/dela-#{node.dela.version}.jar"
+default.dela.url                   = "http://snurran.sics.se/hops/dela/dela-#{node.dela.version}.jar"
 default.dela.dir                   = "/srv"
 default.dela.base_dir              = node.dela.dir + "/dela"
 default.dela.home                  = node.dela.base_dir + "-" + node.dela.version
@@ -28,5 +28,7 @@ default.dela.stun_port2            = 42002
 
 default.dela.id                    = nil
 default.dela.seed                  = nil
+
+default.dela.systemd               = "true"
 
 default.java.jdk_version           = "7"

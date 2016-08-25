@@ -11,3 +11,7 @@ rm -f <%= node.dela.pid_file %> <%= node.dela.logs %> dozy.log*
 echo "nohup java $IPV4 $CONF -jar $JAR 2>&1 > <%= node.dela.logs %> &"
 nohup java $IPV4 $CONF -jar $JAR 2>&1 > <%= node.dela.logs %> &
 echo $! > <%= node.dela.pid_file %>
+sleep 2
+echo "<%= node.dela.logs %>"
+kill -0 <%= node.dela.pid_file %>
+exit $?

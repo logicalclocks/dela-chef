@@ -28,6 +28,7 @@ suites:
 suites:
   - name: default
     run_list:
+      - recipe[kagent::install]
       - recipe[dela::install]
       - recipe[dela::default]
     attributes:

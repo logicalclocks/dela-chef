@@ -1,3 +1,10 @@
+case node.platform
+when "ubuntu"
+ if node.platform_version.to_f <= 14.04
+   node.override.dela.systemd = "false"
+ end
+end
+
 
 raise if node.dela.stun_servers.size < 2 
 stun1_ip = node.dela.stun_servers[0]
@@ -37,7 +44,7 @@ end
 
 service_name="dela"
 
-if node.livy.systemd == "true"
+if node.dela.systemd == "true"
 
   service service_name do
     provider Chef::Provider::Service::Systemd
@@ -85,12 +92,10 @@ else #sysv
 end
 
 
-#if node.kagent.enabled == "true" 
+if node.kagent.enabled == "true" 
    kagent_config service_name do
      service service_name
-     start_script "service #{service_name} start"
-     stop_script "service #{service_name} stop"
-     log_file "#{node.livy.home}/livy.log"
-     pid_file "/tmp/livy.pid"
+     log_file "#{node.dela.home}/dela.log"
+     config_file "#{node.dela.home}/conf/application.conf"
    end
-#end
+end

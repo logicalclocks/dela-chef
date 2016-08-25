@@ -1,8 +1,7 @@
-group node.dela.group do
-  action :create
-  not_if "getent group #{node.dela.group}"
-end
 
+node.default.java.install_flavor = "oracle"
+node.default.java.oracle.accept_oracle_download_terms = true
+include_recipe "java"
 
 user node.dela.user do
   action :create
@@ -17,22 +16,30 @@ group node.dela.group do
   append true
 end
 
+directory "#{node.dela.home}" do
+  owner node.dela.user
+  group node.dela.group
+  mode "775"
+  action :create
+  recursive true
+  not_if { File.directory?("#{node.dela.home}") }
+end
+
 
 directory "#{node.dela.home}/bin" do
   owner node.dela.user
   group node.dela.group
   mode "775"
   action :create
-  recursive true
   not_if { File.directory?("#{node.dela.home}/bin") }
 end
 
-directory "#{node.dela.home}/config" do
+directory "#{node.dela.home}/conf" do
   owner node.dela.user
   group node.dela.group
   mode "775"
   action :create
-  not_if { File.directory?("#{node.dela.home}/config") }
+  not_if { File.directory?("#{node.dela.home}/conf") }
 end
 
 directory "#{node.dela.home}/lib" do
