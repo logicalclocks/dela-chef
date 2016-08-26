@@ -1,6 +1,6 @@
 http:
   port: <%= node.dela.http_port %>
-  adminPort: <%= node.dela.admin_port %>
+  adminPort: <%= node.dela.http_admin_port %>
   gzip:
     enabled: false
 
@@ -25,9 +25,9 @@ logging:
     "se.sics.gvod.stream.congestion.PullLedbat": WARN
     "se.sics.gvod.stream.report.ReportComp": WARN
     "se.sics.nat.stun.client.StunClientComp": WARN
-    "NettyNetwork@41002": WARN
-    "NettyNetwork@42002": WARN
-    "NettyNetwork@30000": WARN
+    "NettyNetwork@<%= node.dela.port %>": WARN
+    "NettyNetwork@<%= node.dela.stun_port1 %>": WARN
+    "NettyNetwork@<%= node.dela.stun_port2 %>": WARN
     "se.sics.ktoolbox.hops.managedStore.storage.HDFSHelper": INFO
     "se.sics.dozy": DEBUG
     "se.sics.ktoolbox.hops.managedStore.storage.cache.HDFSReadCacheImpl": INFO

@@ -26,13 +26,13 @@ start() {
 }
 
 stop() {
-  "$STOP_PROG"
+  $EXEC_WITH_USER "$STOP_PROG"
   return $?
 }
 
 restart() {
-  start
   stop
+  start
   return $?
 }
 
