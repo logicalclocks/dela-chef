@@ -6,7 +6,7 @@ when "ubuntu"
 end
 
 
-raise if node.dela.stun_servers_ip.size == 2 
+raise if node.dela.stun_servers_ip.size <= 2 
 stun1_ip = node.dela.stun_servers_ip[0]
 stun2_ip = node.dela.stun_servers_ip[1]
 stun1_id = node.dela.stun_servers_id[0]
