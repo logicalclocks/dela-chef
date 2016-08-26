@@ -9,11 +9,10 @@ driver:
     natdnsproxy1: "on"
     nictype1: "virtio"
   network:
-  - ["forwarded_port", {guest: 18180, host: 18180}]
-  - ["forwarded_port", {guest: 18181, host: 18181}]
-  - ["forwarded_port", {guest: 30000, host: 30000, protocol: "udp"}]
-  - ["forwarded_port", {guest: 42001, host: 42001, protocol: "udp"}]
+  - ["forwarded_port", {guest: 41000, host: 40000}]
   - ["forwarded_port", {guest: 41001, host: 41001, protocol: "udp"}]
+  - ["forwarded_port", {guest: 41002, host: 41002, protocol: "udp"}]
+  - ["forwarded_port", {guest: 41003, host: 41003, protocol: "udp"}]
 
 provisioner:
   name: chef_solo
