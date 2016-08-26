@@ -9,15 +9,14 @@ default.dela.home                  = node.dela.base_dir + "-" + node.dela.versio
 
 default.dela.http_port			   = 41000
 default.dela.port                  = 41001
-default.dela.http_port             = 41002
-default.dela.admin_port            = 41003
+default.dela.stun_port1            = 41002
+default.dela.stun_port2            = 41003
 default.dela.http_admin_port	   = 41004
 
 default.dela.public_ips            = ['10.0.2.15']
 default.dela.private_ips           = ['10.0.2.15']
 
 default.dela.scripts               = %w{ start.sh stop.sh}
-
 
 default.dela.logs                  = node.dela.base_dir + "/dela.log"
 default.dela.log_level             = "WARN"
