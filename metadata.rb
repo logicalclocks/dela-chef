@@ -42,17 +42,17 @@ attribute "dela/log_level",
 :type => "string"
 
 attribute "dela/stun_port1",
-:description => "1st port for stun server.",
-:type => "string"
-
-attribute "dela/stun_port2",
-:description => "2nd port for stun server.",
-:type => "string"
-
-attribute "dela/stun_client_port1",
 :description => "1st Client port used by stun client in Dela.",
 :type => "string"
 
-attribute "dela/stun_client_port2",
+attribute "dela/stun_port2",
 :description => "2nd Client port used by stun client in Dela.",
+:type => "string"
+
+attribute "dela/port",
+:description => "Dela Client application port.",
+:type => "string"
+
+attribute "dela/http-port",
+:description => "Dela Client http port.",
 :type => "string"
