@@ -6,11 +6,12 @@ when "ubuntu"
 end
 
 
-raise if node.dela.stun_servers_ip.size <= 2 
-stun1_ip = node.dela.stun_servers_ip[0]
-stun2_ip = node.dela.stun_servers_ip[1]
-stun1_id = node.dela.stun_servers_id[0]
-stun2_id = node.dela.stun_servers_id[1]
+if node.dela.stun_servers_ip.size == 2 
+  stun1_ip = node.dela.stun_servers_ip[0]
+  stun2_ip = node.dela.stun_servers_ip[1]
+  stun1_id = node.dela.stun_servers_id[0]
+  stun2_id = node.dela.stun_servers_id[1]
+end
 
 if node.dela.id.nil?
     node.override.dela.id = Time.now.getutc.to_i
