@@ -33,4 +33,3 @@ default.dela.seed                  = nil
 
 default.dela.systemd               = "true"
 
-default.java.jdk_version           = "7"
