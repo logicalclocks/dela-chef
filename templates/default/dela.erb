@@ -31,8 +31,8 @@ stop() {
 }
 
 restart() {
-  start
   stop
+  start
   return $?
 }
 
@@ -56,7 +56,7 @@ status() {
 # user-supplied parameter to stop/start/restart process.
 case "$1" in
   start)
-    <!-- start -->
+    start
     ;;
   stop)
     stop
@@ -68,8 +68,7 @@ case "$1" in
     restart
     ;;
   status)
-      <!-- status -->
-      0
+    status
     ;;
   -h|--help)
     echo ""
