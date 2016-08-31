@@ -31,8 +31,8 @@ stop() {
 }
 
 restart() {
-  start
   stop
+  start
   return $?
 }
 

@@ -9,22 +9,22 @@ network {
 stun {
     client {
         address {
-            port1 = <%= node.dela.stun_client_port1 %>
-            port2 = <%= node.dela.stun_client_port2 %>
+            port1 = <%= node.dela.stun_port1 %>
+            port2 = <%= node.dela.stun_port2 %>
         }
     }
 }
 nat.detection.stunView {
     server {
         ip = "<%= @stun1_ip %>"
-        port1 = <%= node.dela.stun_port1 %>
-        port2 = <%= node.dela.stun_port2 %>
-        id = 1
+        port1 = <%= node.dela.stun_server_port1 %>
+        port2 = <%= node.dela.stun_server_port2 %>
+        id = "<%= @stun1_id %>"
     }
     partner {
         ip = "<%= @stun2_ip %>"
-        port1 = <%= node.dela.stun_port1 %>
-        port2 = <%= node.dela.stun_port2 %>
-        id = 2
+        port1 = <%= node.dela.stun_server_port1 %>
+        port2 = <%= node.dela.stun_server_port2 %>
+        id = "<%= @stun2_id %>"
     }
 }

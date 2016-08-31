@@ -6,9 +6,12 @@ when "ubuntu"
 end
 
 
-raise if node.dela.stun_servers.size < 2 
-stun1_ip = node.dela.stun_servers[0]
-stun2_ip = node.dela.stun_servers[1]
+if node.dela.stun_servers_ip.size == 2 
+  stun1_ip = node.dela.stun_servers_ip[0]
+  stun2_ip = node.dela.stun_servers_ip[1]
+  stun1_id = node.dela.stun_servers_id[0]
+  stun2_id = node.dela.stun_servers_id[1]
+end
 
 if node.dela.id.nil?
     node.override.dela.id = Time.now.getutc.to_i
@@ -26,7 +29,9 @@ template "#{node.dela.home}/conf/application.conf" do
   mode 0750
   variables({ 
      :stun1_ip => stun1_ip,
-     :stun2_ip => stun2_ip
+     :stun2_ip => stun2_ip,
+     :stun1_id => stun1_id,
+     :stun2_id => stun2_id
   })
 end
 
@@ -35,10 +40,6 @@ template "#{node.dela.home}/conf/config.yml" do
   owner node.dela.user
   group node.dela.group
   mode 0750
-  variables({ 
-     :stun1_ip => stun1_ip,
-     :stun1_ip => stun1_ip
-  })
 end
 
 
@@ -68,9 +69,10 @@ if node.dela.systemd == "true"
     notifies :start, resources(:service => service_name), :immediately
   end
 
-  hadoop_spark_start "reload_#{service_name}" do
-    action :systemd_reload
-  end  
+  # TODO ALEX - Jim what is this?
+  # hadoop_spark_start "reload_#{service_name}" do
+  #   action :systemd_reload
+  # end  
 
 else #sysv
 
