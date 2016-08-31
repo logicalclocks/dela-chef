@@ -1,5 +1,4 @@
 
-#node.default.java.oracle.accept_oracle_download_terms = true
 include_recipe "java"
 
 user node.dela.user do
@@ -75,6 +74,4 @@ link node.dela.base_dir do
   group node.dela.group
   to node.dela.home
 end
-
-
 
