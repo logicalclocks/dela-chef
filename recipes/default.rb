@@ -5,14 +5,6 @@ when "ubuntu"
  end
 end
 
-
-if node.dela.stun_servers_ip.size == 2 
-  stun1_ip = node.dela.stun_servers_ip[0]
-  stun2_ip = node.dela.stun_servers_ip[1]
-  stun1_id = node.dela.stun_servers_id[0]
-  stun2_id = node.dela.stun_servers_id[1]
-end
-
 if node.dela.id.nil?
     node.override.dela.id = Time.now.getutc.to_i
 end
@@ -21,6 +13,12 @@ if node.dela.seed.nil?
     node.override.dela.seed = Random.rand(100000)
 end
 
+
+raise if node.dela.stun_servers_ip.size < 2 
+stun1_ip = node.dela.stun_servers_ip[0]
+stun2_ip = node.dela.stun_servers_ip[1]
+stun1_id = node.dela.stun_servers_id[0]
+stun2_id = node.dela.stun_servers_id[1]
 
 template "#{node.dela.home}/conf/application.conf" do
   source "application.conf.erb" 
@@ -69,10 +67,10 @@ if node.dela.systemd == "true"
     notifies :start, resources(:service => service_name), :immediately
   end
 
-  # TODO ALEX - Jim what is this?
-  # hadoop_spark_start "reload_#{service_name}" do
-  #   action :systemd_reload
-  # end  
+  # This is needed so that the service can be started by systemd
+  hadoop_spark_start "reload_#{service_name}" do
+    action :systemd_reload
+  end  
 
 else #sysv
 

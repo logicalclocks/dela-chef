@@ -26,7 +26,7 @@ start() {
 }
 
 stop() {
-  "$STOP_PROG"
+  $EXEC_WITH_USER "$STOP_PROG"
   return $?
 }
 

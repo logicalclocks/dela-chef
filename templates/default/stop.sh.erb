@@ -13,14 +13,13 @@ function kill_named {
     return $res
 }
 
-
 res=1
+
 if [ -f $PID_FILE ] ; then
  PID=`cat $PID_FILE`
  kill $PID > /dev/null 2>&1
  res=$?
 fi
-
 
 if [ $res -ne 0 ] ; then
     kill_named
@@ -34,8 +33,4 @@ else
     echo "Could not find dela process to kill"
 fi
 
-
 exit $res
-
-
-
