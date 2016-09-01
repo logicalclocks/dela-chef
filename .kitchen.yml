@@ -31,4 +31,4 @@ suites:
       - recipe[dela::install]
       - recipe[dela::default]
     attributes:
-         jdk_version: "7"
+         jdk_version: "8"
