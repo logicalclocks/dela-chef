@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e
+
+USERID=`id | sed -e 's/).*//; s/^.*(//;'`
+if [ "X$USERID" != "Xroot" ]; then
+   echo "You should have run update_binaries as root"
+   exit -3
+fi
+
+BINARIES_SERVER=snurran.sics.se
+DELA_USER=<%= node.dela.user %>
+DELA_HOME=<%= node.dela.home %>
+WGET="wget <%= node.dela.url %> -O dela.jar"
+
+service dela stop
+
+echo "cd ${DELA_HOME}/lib"
+cd ${DELA_HOME}/lib
+
+echo "cleaning..."
+rm -rf bin
+rm -rf dela.jar
+
+echo "su ${DELA_USER} -c "$WGET""
+su ${DELA_USER} -c "$WGET"
+
+service dela start

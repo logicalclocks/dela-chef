@@ -16,7 +16,7 @@ default.dela.http_admin_port	   = 42004
 default.dela.public_ips            = ['10.0.2.15']
 default.dela.private_ips           = ['10.0.2.15']
 
-default.dela.scripts               = %w{ start.sh stop.sh}
+default.dela.scripts               = %w{ start.sh stop.sh update_binaries.sh}
 
 default.dela.logs                  = node.dela.base_dir + "/dela.log"
 default.dela.log_level             = "WARN"
