@@ -2,9 +2,12 @@
 include_recipe "java"
 
 user node.dela.user do
-  action :create
-  shell "/bin/bash"
+
+  home "/home/#{node.dela.user}"
   system true
+  shell "/bin/bash"
+  manage_home true
+  action :create
   not_if "getent passwd #{node.dela.user}"
 end
 
