@@ -25,6 +25,10 @@ attribute "dela/user",
           :description => "user parameter value",
           :type => "string"
 
+attribute "dela/dir",
+          :description => "Base directory for dela installation (default: '/srv')",
+	  :type => "string"
+
 attribute "java/jdk_version",
           :description => "Version of Java to use (e.g., '7' or '8')",
           :type => "string"
@@ -64,3 +68,4 @@ attribute "dela/port",
 attribute "dela/http_port",
           :description => "Dela Client http port.",
 	  :type => "string"
+
