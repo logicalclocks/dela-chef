@@ -29,6 +29,6 @@ suites:
     run_list:
       - recipe[kagent::install]
       - recipe[dela::install]
-      - recipe[dela::default]
+      - recipe[dela::master]
     attributes:
          jdk_version: "8"

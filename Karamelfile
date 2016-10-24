@@ -1,6 +1,5 @@
 dependencies:
-  - recipe: dela-chef::install
-  - recipe: dela-chef::default
+  - recipe: dela::slave
     global:
-
+  - dela::master
 

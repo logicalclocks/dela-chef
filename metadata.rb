@@ -6,7 +6,8 @@ description      'Installs/Configures/Runs dela'
 version          "0.1.0"
 
 recipe            "dela::install", "Install dela binaries"
-recipe            "dela::default",  "Configures and starts the dela server"
+recipe            "dela::master",  "Configures and starts the dela master"
+recipe            "dela::slave",  "Configures and starts a dela slave"
 recipe            "dela::purge",  "Stops the dela server and deletes all its files"
 
 
