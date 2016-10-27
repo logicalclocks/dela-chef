@@ -1,5 +1,4 @@
 dependencies:
   - recipe: dela::slave
     global:
-  - dela::master
-
+      - dela::master
