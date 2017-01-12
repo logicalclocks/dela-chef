@@ -68,7 +68,7 @@ if node.dela.systemd == "true"
   end
 
   # This is needed so that the service can be started by systemd
-  hadoop_spark_start "reload_#{service_name}" do
+  kagent_config "reload_#{service_name}" do
     action :systemd_reload
   end  
 
