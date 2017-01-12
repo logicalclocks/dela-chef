@@ -1,8 +1,12 @@
 
 include_recipe "java"
 
-user node.dela.user do
+group node.dela.group do
+  action :create
+  not_if "getent group #{node.dela.group}"
+end
 
+user node.dela.user do
   home "/home/#{node.dela.user}"
   system true
   shell "/bin/bash"
