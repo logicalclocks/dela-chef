@@ -11,11 +11,6 @@ user node.dela.user do
 end
 
 group node.dela.group do
-  action :create
-  not_if "getent group #{node.dela.group}"
-end
-
-group node.dela.group do
   action :modify
   members ["#{node.dela.user}"]
   append true
