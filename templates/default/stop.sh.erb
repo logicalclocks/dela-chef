@@ -1,36 +1,8 @@
 #!/bin/bash
 set -e
+
+CMD=<%= node.dela.home %>/bin/generic_stop.sh  
+SERVICE_NAME=dela
 PID_FILE=<%= node.dela.pid_file %>
 
-function kill_named {
-    PID=`ps aux | grep -i dela | awk 'NR==1{print $2}'`
-    if [ "$PID" != "" ] ; then
-	kill -9 $PID > /dev/null 2>&1
-        res=$?
-    else
-	res=$NOT_FOUND
-    fi
-    return $res
-}
-
-res=1
-
-if [ -f $PID_FILE ] ; then
- PID=`cat $PID_FILE`
- kill $PID > /dev/null 2>&1
- res=$?
-fi
-
-if [ $res -ne 0 ] ; then
-    kill_named
-fi
-
-rm -f ${PID_FILE}
-
-if [ $res -eq 0 ] ; then
- echo "Killed dela"
-else
-    echo "Could not find dela process to kill"
-fi
-
-exit $res
+$CMD $SERVICE_NAME $PID_FILE

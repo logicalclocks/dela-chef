@@ -1,18 +1,11 @@
 #!/bin/bash
 set -e
-BASE_DIR=<%= node.dela.base_dir %>
-echo "base dir: $BASE_DIR"
-CONF="-Dconfig.file=${BASE_DIR}/conf/application.conf"
-IPV4="-Djava.net.preferIPv4Stack=true"
-JAR="${BASE_DIR}/lib/dela.jar"
 
-cd $BASE_DIR
-rm -f <%= node.dela.pid_file %> <%= node.dela.logs %>
-# dozy.log*
-echo "nohup java $IPV4 $CONF -jar $JAR 2>&1 > <%= node.dela.logs %> &"
-nohup java $IPV4 $CONF -jar $JAR 2>&1 > <%= node.dela.logs %> &
-echo $! > <%= node.dela.pid_file %>
-sleep 3
-echo "<%= node.dela.logs %>"
-kill -0 `cat <%= node.dela.pid_file %>`
-exit $?
+SERVICE_NAME=dela
+BASE_DIR=<%= node.dela.base_dir %>
+PID_FILE=<%= node.dela.pid_file %>
+LOGS=<%= node.dela.logs %>
+CMD=${BASE_DIR}/bin/generic_start.sh  
+
+rm -f <%= node.dela.pid_file %>
+$CMD $SERVICE_NAME $BASE_DIR $PID_FILE $LOGS

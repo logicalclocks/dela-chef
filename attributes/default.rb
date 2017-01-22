@@ -12,7 +12,7 @@ default.dela.url                   = "http://snurran.sics.se/hops/dela/dela-#{no
 default.dela.dir                   = "/srv"
 default.dela.base_dir              = node.dela.dir + "/dela"
 default.dela.home                  = node.dela.base_dir + "-" + node.dela.version
-default.dela.scripts               = %w{ start.sh stop.sh update_binaries.sh}
+default.dela.scripts               = %w{ start.sh generic_start.sh stop.sh generic_stop.sh update_binaries.sh}
 default.dela.logs                  = node.dela.base_dir + "/dela.log"
 default.dela.pid_file              = "/tmp/dela.pid"
 
