@@ -5,11 +5,12 @@ license          "Apache v2.0"
 description      'Installs/Configures/Runs dela'
 version          "0.1.0"
 
-recipe            "dela::install", "Install dela binaries"
-recipe            "dela::master",  "Configures and starts the dela master"
-recipe            "dela::slave",  "Configures and starts a dela slave"
-recipe            "dela::default",  "Basic dela recipe"
-recipe            "dela::purge",  "Stops the dela server and deletes all its files"
+recipe            "dela::install",      "Install dela binaries"
+recipe            "dela::master",       "Configures and starts the dela master"
+recipe            "dela::slave",        "Configures and starts a dela slave"
+recipe            "dela::default",      "Basic dela recipe"
+recipe            "stun::sshable",      "Copies a public key to this server so you can use it to ssh"
+recipe            "dela::purge",        "Stops the dela server and deletes all its files"
 
 
 %w{ ubuntu debian rhel centos }.each do |os|
