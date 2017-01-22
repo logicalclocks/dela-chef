@@ -20,6 +20,16 @@ end
 depends "kagent"
 depends "java"
 
+##### karamel/chef
+attribute "java/jdk_version",
+          :description => "Version of Java to use (e.g., '7' or '8')",
+          :type => "string"
+
+attribute "kagent/enabled",
+          :description => "'true' by default",
+          :type => "string"
+
+##### install
 attribute "dela/group",
           :description => "group parameter value",
           :type => "string"
@@ -32,8 +42,9 @@ attribute "dela/dir",
           :description => "Base directory for dela installation (default: '/srv')",
 	  :type => "string"
 
-attribute "java/jdk_version",
-          :description => "Version of Java to use (e.g., '7' or '8')",
+##### app
+attribute "dela/log_level",
+          :description => "Default: WARN. Can be INFO or DEBUG or TRACE or ERROR.",
           :type => "string"
 
 attribute "dela/id",
@@ -42,10 +53,6 @@ attribute "dela/id",
 
 attribute "dela/seed",
           :description => "seed for the dela instance. Randomly generated, but can be ovverriden here.",
-          :type => "string"
-
-attribute "dela/log_level",
-          :description => "Default: WARN. Can be INFO or DEBUG or TRACE or ERROR.",
           :type => "string"
 
 attribute "dela/stun_port1",
@@ -71,4 +78,3 @@ attribute "dela/port",
 attribute "dela/http_port",
           :description => "Dela Client http port.",
 	  :type => "string"
-
