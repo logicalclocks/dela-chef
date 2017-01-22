@@ -7,13 +7,12 @@ PID_FILE=$3
 LOGS=$4
 
 CONF="-Dconfig.file=${BASE_DIR}/conf/application.conf"
-LOG4J="-Dlog4j.configuration=file://${BASE_DIR}/conf/log4j.properties"
 IPV4="-Djava.net.preferIPv4Stack=true"
 JAR="${BASE_DIR}/lib/${SERVICE_NAME}.jar"
 
 DIR=`pwd`
 cd $BASE_DIR
-echo "nohup java $IPV4 $CONF $LOG4J -jar $JAR > $LOGS 2>&1 < /dev/null &"
-nohup java $IPV4 $CONF $LOG4J -jar $JAR > $LOGS 2>&1 < /dev/null &
+echo "nohup java $IPV4 $CONF -jar $JAR > $LOGS 2>&1 < /dev/null &"
+nohup java $IPV4 $CONF -jar $JAR > $LOGS 2>&1 < /dev/null &
 cd $DIR
 echo $! > $PID_FILE

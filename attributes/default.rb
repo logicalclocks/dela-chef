@@ -6,7 +6,7 @@ default.dela.public_ips            = ['10.0.2.15']
 default.dela.private_ips           = ['10.0.2.15']
 default.dela.systemd               = "true"
 
-default.dela.version               = "0.0.1-SNAPSHOT"
+default.dela.version               = "0.0.2-SNAPSHOT"
 
 default.dela.url                   = "http://snurran.sics.se/hops/dela/dela-#{node.dela.version}.jar"
 default.dela.dir                   = "/srv"
@@ -17,12 +17,12 @@ default.dela.logs                  = node.dela.base_dir + "/dela.log"
 default.dela.pid_file              = "/tmp/dela.pid"
 
 default.dela.log_level             = "WARN"
-default.dela.stun_servers_ip       = ["193.10.64.107","193.10.64.85"]
+default.dela.stun_servers_ip       = ["192.168.56.101","192.168.56.102"]
 default.dela.stun_servers_id       = ["1","2"]
 default.dela.id                    = nil
 default.dela.seed                  = nil
-default.dela.stun_server_port1     = 41001
-default.dela.stun_server_port2     = 42001
+default.dela.stun_server_port1     = 42002
+default.dela.stun_server_port2     = 42003
 default.dela.http_port		   	   = 42000
 default.dela.port                  = 42001
 default.dela.stun_port1            = 42002

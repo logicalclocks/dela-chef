@@ -19,17 +19,19 @@ template "#{node.dela.home}/conf/application.conf" do
   owner node.dela.user
   group node.dela.group
   mode 0750
-  variables({
+  variables({ 
+     :stun1_ip => stun1_ip,
+     :stun2_ip => stun2_ip,
+     :stun1_id => stun1_id,
+     :stun2_id => stun2_id
   })
 end
 
-template "#{node.dela.home}/conf/log4j.properties" do
-  source "log4j.properties.erb" 
+template "#{node.dela.home}/conf/config.yml" do
+  source "config.yml.erb" 
   owner node.dela.user
   group node.dela.group
   mode 0750
-  variables({
-  })
 end
 
 # service_name defined in base-default
