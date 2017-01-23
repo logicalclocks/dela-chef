@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+SERVICE_NAME=$1
+BASE_DIR=$2
+PID_FILE=$3
+LOGS=$4
+
+CONF="-Dconfig.file=${BASE_DIR}/conf/application.conf"
+IPV4="-Djava.net.preferIPv4Stack=true"
+JAR="${BASE_DIR}/lib/${SERVICE_NAME}.jar"
+
+DIR=`pwd`
+cd $BASE_DIR
+echo "nohup java $IPV4 $CONF -jar $JAR > $LOGS 2>&1 < /dev/null &"
+nohup java $IPV4 $CONF -jar $JAR > $LOGS 2>&1 < /dev/null &
+cd $DIR
+echo $! > $PID_FILE
