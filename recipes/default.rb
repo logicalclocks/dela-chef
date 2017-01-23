@@ -34,10 +34,9 @@ template "#{node.dela.home}/conf/config.yml" do
   mode 0750
 end
 
-# service_name defined in base-default
 if node.kagent.enabled == "true" 
-   kagent_config service_name do
-     service service_name
+   kagent_config node.dela.service do
+     service node.dela.service
      log_file "#{node.dela.logs}"
      config_file "#{node.dela.home}/conf/application.conf"
    end
