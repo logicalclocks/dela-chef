@@ -28,4 +28,5 @@ default.dela.port                  = 42001
 default.dela.stun_port1            = 42002
 default.dela.stun_port2            = 42003
 default.dela.http_admin_port	   = 42004
+default.dela.hops.baseEndpoint 	   = "DISK"
 

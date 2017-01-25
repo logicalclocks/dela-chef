@@ -78,3 +78,7 @@ attribute "dela/port",
 attribute "dela/http_port",
           :description => "Dela Client http port.",
 	  :type => "string"
+
+attribute "dela/hops/baseEndpoint",
+          :description => "Dela Client base endpoint(HDFS/DISK).",
+       :type => "string"
