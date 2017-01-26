@@ -17,7 +17,7 @@ default.dela.logs                  = node.dela.base_dir + "/dela.log"
 default.dela.pid_file              = "/tmp/dela.pid"
 
 default.dela.log_level             = "WARN"
-default.dela.stun_servers_ip       = ["192.168.56.101","192.168.56.102"]
+default.dela.stun_servers_ip       = ["192.0.0.101","192.0.0.102"]
 default.dela.stun_servers_id       = ["1","2"]
 default.dela.id                    = nil
 default.dela.seed                  = nil
