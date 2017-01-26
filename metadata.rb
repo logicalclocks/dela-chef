@@ -77,8 +77,16 @@ attribute "dela/port",
 
 attribute "dela/http_port",
           :description => "Dela Client http port.",
-	  :type => "string"
+	    :type => "string"
 
 attribute "dela/hops/baseEndpoint",
           :description => "Dela Client base endpoint(HDFS/DISK).",
-       :type => "string"
+          :type => "string"
+
+attribute "dela/stun_servers_ip",
+          :description => "Dela Client stun connections(ips).",
+          :type => "array"
+
+attribute "dela/stun_servers_id",
+          :description => "Dela Client stun connections(ids).",
+          :type => "array"
