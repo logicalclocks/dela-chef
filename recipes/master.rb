@@ -1,4 +1,4 @@
-include_recipe "dela::_default"
+include_recipe "dela::default"
 
 homedir = "/home/#{node.dela.user}"
 Chef::Log.info "Home dir is #{homedir}. Generating ssh keys..."

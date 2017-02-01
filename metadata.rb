@@ -40,7 +40,11 @@ attribute "dela/user",
 
 attribute "dela/dir",
           :description => "Base directory for dela installation (default: '/srv')",
-	  :type => "string"
+	     :type => "string"
+
+attribute "dela/version",
+          :description => "Version for dela installation",
+          :type => "string"
 
 ##### app
 attribute "dela/log_level",
