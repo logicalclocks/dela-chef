@@ -90,3 +90,13 @@ attribute "dela/stun_servers_ip",
 attribute "dela/stun_servers_id",
           :description => "Dela Client stun connections(ids).",
           :type => "array"
+
+attribute "mysql/user",
+          :description => "Mysql server username",
+          :type => 'string',
+          :required => "required"
+
+attribute "mysql/password",
+          :description => "MySql server Password",
+          :type => 'string',
+          :required => "required"

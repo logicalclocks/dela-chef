@@ -1,3 +1,5 @@
+include_attribute "ndb"
+
 default.dela.service			   = "dela"
 default.dela.group                 = "dela"
 default.dela.user                  = "dela"
