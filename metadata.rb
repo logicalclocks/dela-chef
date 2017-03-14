@@ -79,10 +79,6 @@ attribute "dela/http_port",
           :description => "Dela Client http port.",
 	    :type => "string"
 
-attribute "dela/hops/baseEndpoint",
-          :description => "Dela Client base endpoint(HDFS/DISK).",
-          :type => "string"
-
 attribute "dela/stun_servers_ip",
           :description => "Dela Client stun connections(ips).",
           :type => "array"
@@ -90,6 +86,14 @@ attribute "dela/stun_servers_ip",
 attribute "dela/stun_servers_id",
           :description => "Dela Client stun connections(ids).",
           :type => "array"
+
+attribute "dela/hops/storage/type",
+          :description => "Dela Client storage type(HDFS/DISK).",
+          :type => "string"
+          
+attribute "dela/hops/library/type",
+          :description => "Dela Client library type(MYSQL/DISK).",
+          :type => "string"
 
 attribute "mysql/user",
           :description => "Mysql server username",
