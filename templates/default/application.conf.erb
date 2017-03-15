@@ -33,7 +33,13 @@ report.dir = "<%= node.dela.home %>"
 
 hops.storage.type = <%= node.dela.hops.storage.type %>
 hops.library.type = <%= node.dela.hops.library.type %>
-hops.library.disk.summary = "<%= node.dela.home %>/library.summary"
 
-hops.mysql.user = <%= node.mysql.user %>
-hops.mysql.password = <%= node.mysql.password %>
+<% if <%= node.dela.hops.library.type %> == DISK %>
+hops.library.disk.summary = "<%= node.dela.home %>/library.summary"
+<% else %> 
+hops.library.mysql.ip = <%= node.dela.mysql.ip %>
+hops.library.mysql.port = <%= node.dela.mysql.port %>
+hops.library.mysql.user = <%= node.mysql.user %>
+hops.library.mysql.password = <%= node.mysql.password %>
+<% end %> 
+

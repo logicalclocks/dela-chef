@@ -39,9 +39,6 @@ attribute "dela/user",
           :description => "user parameter value",
           :type => "string"
 
-attribute "dela/dir",
-          :description => "Base directory for dela installation (default: '/srv')",
-	  :type => "string"
 
 ##### app
 attribute "dela/log_level",
@@ -96,12 +93,28 @@ attribute "dela/hops/library/type",
           :description => "Dela Client library type(MYSQL/DISK).",
           :type => "string"
 
+##### hopsworks
+attribute "dela/mysql/ip",
+          :description => "Mysql server ip",
+          :type => 'string',
+          :required => "required"
+
+attribute "dela/mysql/port",
+          :description => "MySql server port",
+          :type => 'string',
+          :required => "required"
+
 attribute "mysql/user",
           :description => "Mysql server username",
           :type => 'string',
           :required => "required"
 
 attribute "mysql/password",
-          :description => "MySql server Password",
+          :description => "MySql server password",
+          :type => 'string',
+          :required => "required"
+
+attribute "install/dir",
+          :description => "Base directory for dela installation (default: '/srv')",
           :type => 'string',
           :required => "required"

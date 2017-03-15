@@ -1,3 +1,4 @@
+include_attribute "kagent"
 include_attribute "ndb"
 
 default.dela.service			   = "dela"
@@ -11,7 +12,7 @@ default.dela.systemd               = "true"
 default.dela.version               = "0.0.2-SNAPSHOT"
 
 default.dela.url                   = "http://snurran.sics.se/hops/dela/dela-#{node.dela.version}.jar"
-default.dela.dir                   = "/srv"
+default.dela.dir                   = node.install.dir
 default.dela.base_dir              = node.dela.dir + "/dela"
 default.dela.home                  = node.dela.base_dir + "-" + node.dela.version
 default.dela.scripts               = %w{ start.sh generic_start.sh stop.sh generic_stop.sh update_binaries.sh}
