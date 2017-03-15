@@ -19,6 +19,7 @@ end
 
 depends "kagent"
 depends "java"
+depends "ndb"
 
 ##### karamel/chef
 attribute "java/jdk_version",
