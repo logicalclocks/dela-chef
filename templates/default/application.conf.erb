@@ -34,7 +34,7 @@ report.dir = "<%= node.dela.home %>"
 hops.storage.type = <%= node.dela.hops.storage.type %>
 hops.library.type = <%= node.dela.hops.library.type %>
 
-<% if <%= node.dela.hops.library.type %> == DISK %>
+<% if node.dela.hops.library.type == DISK %>
 hops.library.disk.summary = "<%= node.dela.home %>/library.summary"
 <% else %> 
 hops.library.mysql.ip = <%= node.dela.mysql.ip %>
