@@ -1,7 +1,4 @@
 dependencies:
-  - recipe: dela::slave
-    global:
-      - dela::master
   - recipe: dela::default
-    global:
-      - ndb::mysqld
+  - recipe: dela::install
+  - recipe: dela::sshable
