@@ -6,5 +6,7 @@ dependencies:
     global:
       - stun::default
   - recipe: dela::sshable
+    local:
+      - kagent::default
     global:
       - delabootstrap::pkey-provider
