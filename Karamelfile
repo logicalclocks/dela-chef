@@ -2,11 +2,11 @@ dependencies:
   - recipe: dela::install
   - recipe: dela::default
     local: 
-      - kagent::default
+      - kagent
     global:
       - stun::default
   - recipe: dela::sshable
     local:
-      - kagent::default
+      - kagent
     global:
       - delabootstrap::pkey-provider
