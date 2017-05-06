@@ -132,11 +132,3 @@ template "#{node.dela.home}/conf/config.yml" do
   group node.dela.group
   mode 0750
 end
-
-if node.kagent.enabled == "true" 
-   kagent_config node.dela.service do
-     service node.dela.service
-     log_file "#{node.dela.logs}"
-     config_file "#{node.dela.home}/conf/application.conf"
-   end
-end
