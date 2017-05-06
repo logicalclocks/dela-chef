@@ -2,3 +2,5 @@ dependencies:
   - recipe: dela::default
   - recipe: dela::install
   - recipe: dela::sshable
+    global:
+    - delabootstrap::pkey-provider
