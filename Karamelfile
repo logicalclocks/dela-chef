@@ -1,8 +1,6 @@
 dependencies:
   - recipe: dela::install
   - recipe: dela::default
-    local: 
-      - kagent
     global:
       - stun::default
   - recipe: dela::sshable
