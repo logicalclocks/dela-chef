@@ -1,8 +1,4 @@
 dependencies:
-  - recipe: dela::install
-  - recipe: dela::default
-    global:
-      - stun::default
   - recipe: dela::sshable
     global:
       - delabootstrap::pkey-provider
