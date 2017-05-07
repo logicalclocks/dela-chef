@@ -85,33 +85,11 @@ if node.dela.seed.nil?
     node.override.dela.seed = Random.rand(100000)
 end
 
-# hack until groups attrs work in karamel
-stun1_ip = "192.168.56.102"
-stun2_ip = "192.168.56.103"
-stun1_id = 2
-stun2_id = 3
-
-if my_private_ip().eql?("192.168.56.104")
-  node.override.dela.port = 41100
-  node.override.dela.stun_port1 = 41101
-  node.override.dela.stun_port2 = 41102
-  node.override.dela.hops.storage.type = "DISK"
-  node.override.dela.hops.library.type = "DISK"
-end
-if my_private_ip().eql?("192.168.56.105")
-  node.override.dela.port = 41200
-  node.override.dela.stun_port1 = 41201
-  node.override.dela.stun_port2 = 41202
-  node.override.dela.hops.storage.type = "DISK"
-  node.override.dela.hops.library.type = "DISK"
-end
-########
-
-#raise if node.dela.stun_servers_ip.size < 2 
-#stun1_ip = node.dela.stun_servers_ip[0]
-#stun2_ip = node.dela.stun_servers_ip[1]
-#stun1_id = node.dela.stun_servers_id[0]
-#stun2_id = node.dela.stun_servers_id[1]
+raise if node.dela.stun_servers_ip.size < 2 
+stun1_ip = node.dela.stun_servers_ip[0]
+stun2_ip = node.dela.stun_servers_ip[1]
+stun1_id = node.dela.stun_servers_id[0]
+stun2_id = node.dela.stun_servers_id[1]
 
 template "#{node.dela.home}/conf/application.conf" do
   source "application.conf.erb" 
