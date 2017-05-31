@@ -5,6 +5,6 @@ source 'https://supermarket.chef.io'
 metadata
 
 cookbook 'java'
-cookbook 'kagent', github: "karamelchef/kagent-chef", branch: "master"
-cookbook 'conda', github: "hopshadoop/conda-chef", branch: "master"
+cookbook 'kagent', github: "AlexHopsworks/kagent-chef", branch: "local"
+cookbook 'conda', github: "AlexHopsworks/conda-chef", branch: "local"
 #cookbook 'ndb', github: "hopshadoop/ndb-chef", branch: "master"
