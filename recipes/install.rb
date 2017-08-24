@@ -19,7 +19,7 @@ end
 directory "#{node.dela.home}" do
   owner node.dela.user
   group node.dela.group
-  mode "775"
+  mode "770"
   action :create
   recursive true
   not_if { File.directory?("#{node.dela.home}") }
@@ -29,7 +29,7 @@ end
 directory "#{node.dela.home}/bin" do
   owner node.dela.user
   group node.dela.group
-  mode "775"
+  mode "770"
   action :create
   not_if { File.directory?("#{node.dela.home}/bin") }
 end
@@ -37,7 +37,7 @@ end
 directory "#{node.dela.home}/conf" do
   owner node.dela.user
   group node.dela.group
-  mode "775"
+  mode "770"
   action :create
   not_if { File.directory?("#{node.dela.home}/conf") }
 end
@@ -45,7 +45,7 @@ end
 directory "#{node.dela.home}/lib" do
   owner node.dela.user
   group node.dela.group
-  mode "775"
+  mode "770"
   action :create
   not_if { File.directory?("#{node.dela.home}/lib") }
 end
