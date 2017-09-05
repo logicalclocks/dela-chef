@@ -1,29 +1,29 @@
-case node.platform
+case node['platform']
 when "ubuntu"
- if node.platform_version.to_f <= 14.04
-   node.override.dela.systemd = "false"
+ if node['platform_version'].to_f <= 14.04
+   node.override['dela']['systemd'] = "false"
  end
 end
 
-if node.dela.id.nil?
-    node.override.dela.id = Time.now.getutc.to_i
+if node['dela']['id'].nil?
+    node.override['dela']['id'] = Time.now.getutc.to_i
 end
 
-if node.dela.seed.nil?
-    node.override.dela.seed = Random.rand(100000)
+if node['dela']['seed'].nil?
+    node.override['dela']['seed'] = Random.rand(100000)
 end
 
 
-raise if node.dela.stun_servers_ip.size < 2 
-stun1_ip = node.dela.stun_servers_ip[0]
-stun2_ip = node.dela.stun_servers_ip[1]
-stun1_id = node.dela.stun_servers_id[0]
-stun2_id = node.dela.stun_servers_id[1]
+raise if node['dela']['stun_servers_ip']['size'] < 2 
+stun1_ip = node['dela']['stun_servers_ip'][0]
+stun2_ip = node['dela']['stun_servers_ip'][1]
+stun1_id = node['dela']['stun_servers_id'][0]
+stun2_id = node['dela']['stun_servers_id'][1]
 
-template "#{node.dela.home}/conf/application.conf" do
+template "#{node['dela']['home']}/conf/application.conf" do
   source "application.conf.erb" 
-  owner node.dela.user
-  group node.dela.group
+  owner node['dela']['user']
+  group node['dela']['group']
   mode 0750
   variables({ 
      :stun1_ip => stun1_ip,
@@ -33,17 +33,17 @@ template "#{node.dela.home}/conf/application.conf" do
   })
 end
 
-template "#{node.dela.home}/conf/config.yml" do
+template "#{node['dela']['home']}/conf/config.yml" do
   source "config.yml.erb" 
-  owner node.dela.user
-  group node.dela.group
+  owner node['dela']['user']
+  group node['dela']['group']
   mode 0750
 end
 
 
 service_name="dela"
 
-if node.dela.systemd == "true"
+if node['dela']['systemd'] == "true"
 
   service service_name do
     provider Chef::Provider::Service::Systemd
@@ -51,7 +51,7 @@ if node.dela.systemd == "true"
     action :nothing
   end
 
-  case node.platform_family
+  case node['platform_family']
   when "rhel"
     systemd_script = "/usr/lib/systemd/system/#{service_name}.service" 
   else
@@ -92,10 +92,10 @@ else #sysv
 end
 
 
-if node.kagent.enabled == "true" 
+if node['kagent']['enabled'] == "true" 
    kagent_config service_name do
      service service_name
-     log_file "#{node.dela.home}/dela.log"
-     config_file "#{node.dela.home}/conf/application.conf"
+     log_file "#{node['dela']['home']}/dela.log"
+     config_file "#{node['dela']['home']}/conf/application.conf"
    end
 end

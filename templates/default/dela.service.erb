@@ -3,11 +3,11 @@ Description = Dela server
 After = syslog.target network.target remote-fs.target
 
 [Service]
-User = <%= node.dela.user %>
+User = <%= node['dela']['user'] %>
 
 PIDFile = /tmp/dela.pid
-ExecStart = <%= node.dela.home %>/bin/start.sh
-ExecStop = <%= node.dela.home %>/bin/stop.sh
+ExecStart = <%= node['dela']['home'] %>/bin/start.sh
+ExecStop = <%= node['dela']['home'] %>/bin/stop.sh
 LimitNOFILE = 20000
 
 Type = forking

@@ -8,9 +8,9 @@ if [ "X$USERID" != "Xroot" ]; then
 fi
 
 BINARIES_SERVER=snurran.sics.se
-DELA_USER=<%= node.dela.user %>
-DELA_HOME=<%= node.dela.home %>
-WGET="wget <%= node.dela.url %> -O dela.jar"
+DELA_USER=<%= node['dela']['user'] %>
+DELA_HOME=<%= node['dela']['home'] %>
+WGET="wget <%= node['dela']['url'] %> -O dela.jar"
 
 service dela stop
 

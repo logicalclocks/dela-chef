@@ -2,10 +2,10 @@
 set -e
 
 SERVICE_NAME=dela
-BASE_DIR=<%= node.dela.base_dir %>
-PID_FILE=<%= node.dela.pid_file %>
-LOGS=<%= node.dela.logs %>
+BASE_DIR=<%= node['dela']['base_dir'] %>
+PID_FILE=<%= node['dela']['pid_file'] %>
+LOGS=<%= node['dela']['logs'] %>
 CMD=${BASE_DIR}/bin/generic_start.sh  
 
-rm -f <%= node.dela.pid_file %>
+rm -f <%= node['dela']['pid_file'] %>
 $CMD $SERVICE_NAME $BASE_DIR $PID_FILE $LOGS

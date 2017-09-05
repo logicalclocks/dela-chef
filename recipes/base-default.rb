@@ -1,14 +1,14 @@
 ########### CHANGE ###########
-service_name=node.dela.service
+service_name=node['dela']['service']
 
-case node.platform
+case node['platform']
 when "ubuntu"
- if node.platform_version.to_f <= 14.04
-   node.override.dela.systemd=node_systemd = "false"
+ if node['platform_version'].to_f <= 14.04
+   node.override['dela']['systemd']=node_systemd = "false"
  end
 end
 
-node_systemd=node.dela.systemd
+node_systemd=node['dela']['systemd']
 ###### NO NEED TO CHANGE #####
 
 if node_systemd == "true"
@@ -18,7 +18,7 @@ if node_systemd == "true"
     action :nothing
   end
 
-  case node.platform_family
+  case node['platform_family']
   when "rhel"
     systemd_script = "/usr/lib/systemd/system/#{service_name}.service" 
   else
