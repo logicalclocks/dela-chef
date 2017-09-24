@@ -1,7 +1,7 @@
 system {
-    seed = <%= node.dela.seed %>
-    port = <%= node.dela.port %>
-    id = <%= node.dela.id %>
+    seed = <%= node['dela']['seed'] %>
+    port = <%= node['dela']['port'] %>
+    id = <%= node['dela']['id'] %>
 }
 network {
    ipType = "PRIVATE"
@@ -9,37 +9,37 @@ network {
 stun {
     client {
         address {
-            port1 = <%= node.dela.stun_port1 %>
-            port2 = <%= node.dela.stun_port2 %>
+            port1 = <%= node['dela']['stun_port1'] %>
+            port2 = <%= node['dela']['stun_port2'] %>
         }
     }
 }
 nat.detection.stunView {
     server {
         ip = "<%= @stun1_ip %>"
-        port1 = <%= node.dela.stun_server_port1 %>
-        port2 = <%= node.dela.stun_server_port2 %>
+        port1 = <%= node['dela']['stun_server_port1'] %>
+        port2 = <%= node['dela']['stun_server_port2'] %>
         id = "<%= @stun1_id %>"
     }
     partner {
         ip = "<%= @stun2_ip %>"
-        port1 = <%= node.dela.stun_server_port1 %>
-        port2 = <%= node.dela.stun_server_port2 %>
+        port1 = <%= node['dela']['stun_server_port1'] %>
+        port2 = <%= node['dela']['stun_server_port2'] %>
         id = "<%= @stun2_id %>"
     }
 }
-webservice.server= "<%= node.dela.home %>/conf/config.yml"
-report.dir = "<%= node.dela.home %>"
+webservice.server= "<%= node['dela']['home'] %>/conf/config.yml"
+report.dir = "<%= node['dela']['home'] %>"
 
-hops.storage.type = <%= node.dela.hops.storage.type %>
-hops.library.type = <%= node.dela.hops.library.type %>
+hops.storage.type = <%= node['dela']['hops']['storage']['type'] %>
+hops.library.type = <%= node['dela']['hops']['library']['type'] %>
 
-<% if node.dela.hops.library.type == "DISK" %>
-hops.library.disk.summary = "<%= node.dela.home %>/library.summary"
+<% if node['dela']['hops']['library']['type'] == "DISK" %>
+hops.library.disk.summary = "<%= node['dela']['home'] %>/library.summary"
 <% else %> 
-hops.library.mysql.ip = <%= node.dela.mysql.ip %>
-hops.library.mysql.port = <%= node.dela.mysql.port %>
-hops.library.mysql.user = <%= node.mysql.user %>
-hops.library.mysql.password = <%= node.mysql.password %>
+hops.library.mysql.ip = <%= node['dela']['mysql']['ip'] %>
+hops.library.mysql.port = <%= node['dela']['mysql']['port'] %>
+hops.library.mysql.user = <%= node['mysql']['user'] %>
+hops.library.mysql.password = <%= node['mysql']['password'] %>
 <% end %> 
 

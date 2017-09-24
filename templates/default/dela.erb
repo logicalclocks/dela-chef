@@ -15,9 +15,9 @@
 
 # Variables
 
-START_PROG="<%= node.dela.home %>/bin/start.sh"  
-STOP_PROG="<%= node.dela.home %>/bin/stop.sh"  
-EXEC_WITH_USER="su <%= node.dela.user %> -c"
+START_PROG="<%= node['dela']['home'] %>/bin/start.sh"  
+STOP_PROG="<%= node['dela']['home'] %>/bin/stop.sh"  
+EXEC_WITH_USER="su <%= node['dela']['user'] %> -c"
 
 start() {
   ulimit -n 65000 2>&1 > /dev/null
@@ -38,7 +38,7 @@ restart() {
 
 status() {
   res=1
-  PID_FILE=<%= node.dela.pid_file %>
+  PID_FILE=<%= node['dela']['pid_file'] %>
   if [ -f $PID_FILE ] ; then
      PID=`cat $PID_FILE`
      kill -0 $PID
