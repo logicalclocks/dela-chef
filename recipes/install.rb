@@ -1,7 +1,6 @@
 
 include_recipe "java"
 
-setup_aws()
 user node['dela']['user'] do
   home "/home/#{node['dela']['user']}"
   system true
