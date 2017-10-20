@@ -16,6 +16,12 @@ group node['dela']['group'] do
   append true
 end
 
+group node['hops']['group'] do
+  action :modify
+  members ["#{node['dela']['user']}"]
+  append true
+end
+
 directory "#{node['dela']['home']}" do
   owner node['dela']['user']
   group node['dela']['group']
