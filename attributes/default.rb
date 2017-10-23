@@ -1,5 +1,6 @@
 include_attribute "kagent"
 include_attribute "ndb"
+include_attribute "hops"
 
 default['dela']['service']			         = "dela"
 default['dela']['group']                 = node['install']['user'].empty? ? "dela" : node['install']['user']
