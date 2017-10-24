@@ -28,10 +28,10 @@ default['dela']['seed']                  = nil
 default['dela']['stun_server_port1']     = 42002
 default['dela']['stun_server_port2']     = 42003
 default['dela']['http_port']		   	     = 42000
-default['dela']['port']                  = 42001
-default['dela']['stun_port1']            = 42002
-default['dela']['stun_port2']            = 42003
-default['dela']['http_admin_port']	     = 42004
+default['dela']['port']                  = 42011
+default['dela']['stun_port1']            = 42012
+default['dela']['stun_port2']            = 42013
+default['dela']['http_admin_port']	     = 42014
 default['dela']['hops']['storage']['type'] 	   = "HDFS"
 default['dela']['hops']['library']['type'] 	   = "DISK"
 
