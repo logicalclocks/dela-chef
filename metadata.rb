@@ -3,7 +3,7 @@ maintainer       "Jim Dowling"
 maintainer_email "jdowling@kth.se"
 license          "Apache v2.0"
 description      'Installs/Configures/Runs dela'
-version          "0.3.0"
+version          "0.4.0"
 
 recipe            "dela::install",      "Install dela binaries"
 recipe            "dela::master",       "Configures and starts the dela master"
