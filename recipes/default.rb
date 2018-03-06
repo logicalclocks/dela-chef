@@ -56,7 +56,7 @@ end
 
 if node['kagent']['enabled'] == "true" 
    kagent_config service_name do
-     group service_name
+     service service_name
      log_file "#{node['dela']['logs']}"
      config_file "#{node['dela']['base_dir']}/conf/application.conf"
    end
