@@ -6,9 +6,9 @@ After = syslog.target network.target remote-fs.target
 User = <%= node['dela']['user'] %>
 
 PIDFile = /tmp/dela.pid
-ExecStart = <%= node['dela']['home'] %>/bin/start.sh
-ExecStop = <%= node['dela']['home'] %>/bin/stop.sh
-LimitNOFILE = 20000
+ExecStart = <%= node['dela']['base_dir'] %>/bin/start.sh
+ExecStop = <%= node['dela']['base_dir'] %>/bin/stop.sh
+LimitNOFILE = 30000
 
 Type = forking
 
