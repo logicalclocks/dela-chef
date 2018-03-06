@@ -1,4 +1,3 @@
-
 service_name=node['dela']['service']
 
 case node['platform']
@@ -33,7 +32,7 @@ if node_systemd == "true"
     notifies :start, resources(:service => service_name), :immediately
   end
 
-  # This is needed so that the service can be started by systemd
+  # Stops, reloads systemctl daemons, starts dela
   kagent_config "#{service_name}" do
     action :systemd_reload
   end  
@@ -57,7 +56,8 @@ end
 
 if node['kagent']['enabled'] == "true" 
    kagent_config service_name do
-     service "Hops"
+     cluster "Hops"
+     group service_name
      log_file "#{node['dela']['logs']}"
      config_file "#{node['dela']['base_dir']}/conf/application.conf"
    end

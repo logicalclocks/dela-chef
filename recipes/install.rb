@@ -56,7 +56,7 @@ for script in node['dela']['scripts'] do
     source "#{script}.erb"
     owner node['dela']['user']
     group node['dela']['group']
-    mode 0750
+    mode "0750"
   end
 end
 
