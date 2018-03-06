@@ -1,15 +1,12 @@
 name             "dela"
-maintainer       "Jim Dowling"
-maintainer_email "jdowling@kth.se"
+maintainer       "Alex Ormenisan"
+maintainer_email "aaor@kth.se"
 license          "Apache v2.0"
 description      'Installs/Configures/Runs dela'
-version          "0.5.0"
+version          "0.2.0"
 
 recipe            "dela::install",      "Install dela binaries"
-recipe            "dela::master",       "Configures and starts the dela master"
-recipe            "dela::slave",        "Configures and starts a dela slave"
 recipe            "dela::default",      "Basic dela recipe"
-recipe            "stun::sshable",      "Copies a public key to this server so you can use it to ssh"
 recipe            "dela::purge",        "Stops the dela server and deletes all its files"
 
 
