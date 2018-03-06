@@ -2,7 +2,7 @@ bash 'kill_running_interpreters' do
     user "root"
     ignore_failure true
     code <<-EOF
-      service dela stop
+      systemctl stop dela
     EOF
 end
 

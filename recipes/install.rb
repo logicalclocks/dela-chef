@@ -25,35 +25,30 @@ end
 directory "#{node['dela']['home']}" do
   owner node['dela']['user']
   group node['dela']['group']
-  mode "770"
+  mode "750"
   action :create
-  recursive true
-  not_if { File.directory?("#{node['dela']['home']}") }
 end
 
 
 directory "#{node['dela']['home']}/bin" do
   owner node['dela']['user']
   group node['dela']['group']
-  mode "770"
+  mode "750"
   action :create
-  not_if { File.directory?("#{node['dela']['home']}/bin") }
 end
 
 directory "#{node['dela']['home']}/conf" do
   owner node['dela']['user']
   group node['dela']['group']
-  mode "770"
+  mode "700"
   action :create
-  not_if { File.directory?("#{node['dela']['home']}/conf") }
 end
 
 directory "#{node['dela']['home']}/lib" do
   owner node['dela']['user']
   group node['dela']['group']
-  mode "770"
+  mode "750"
   action :create
-  not_if { File.directory?("#{node['dela']['home']}/lib") }
 end
 
 for script in node['dela']['scripts'] do
@@ -61,7 +56,7 @@ for script in node['dela']['scripts'] do
     source "#{script}.erb"
     owner node['dela']['user']
     group node['dela']['group']
-    mode 0750
+    mode "0750"
   end
 end
 
@@ -72,7 +67,7 @@ remote_file "#{node['dela']['home']}/lib/dela.jar" do
   retries 2
   owner node['dela']['user']
   group node['dela']['group']
-  mode "0755"
+  mode "0750"
   # TODO - checksum
   action :create_if_missing
 end
@@ -101,7 +96,7 @@ template "#{node['dela']['home']}/conf/application.conf" do
   source "application.conf.erb" 
   owner node['dela']['user']
   group node['dela']['group']
-  mode 0750
+  mode 0700
   variables({ 
      :stun1_ip => stun1_ip,
      :stun2_ip => stun2_ip,
