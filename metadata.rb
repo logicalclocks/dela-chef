@@ -3,7 +3,7 @@ maintainer       "Alex Ormenisan"
 maintainer_email "aaor@kth.se"
 license          "Apache v2.0"
 description      'Installs/Configures/Runs dela'
-version          "0.2.0"
+version          "0.4.0"
 
 recipe            "dela::install",      "Install dela binaries"
 recipe            "dela::default",      "Basic dela recipe"
@@ -29,6 +29,10 @@ attribute "kagent/enabled",
           :type => "string"
 
 ##### install
+attribute "dela/version",
+          :description => "dela-transfer version",
+          :type => "string"
+
 attribute "dela/group",
           :description => "group parameter value",
           :type => "string"
