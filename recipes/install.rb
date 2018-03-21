@@ -40,11 +40,18 @@ end
 directory "#{node['dela']['home']}/conf" do
   owner node['dela']['user']
   group node['dela']['group']
-  mode "700"
+  mode "750"
   action :create
 end
 
 directory "#{node['dela']['home']}/lib" do
+  owner node['dela']['user']
+  group node['dela']['group']
+  mode "750"
+  action :create
+end
+
+directory "#{node['dela']['home']}/report" do
   owner node['dela']['user']
   group node['dela']['group']
   mode "750"
@@ -79,7 +86,7 @@ link node['dela']['base_dir'] do
 end
 
 if node['dela']['id'].nil?
-    node.override['dela']['id'] = Time.now.getutc.to_i
+    node.override['dela']['id'] = Random.rand(100000)
 end
 
 if node['dela']['seed'].nil?
@@ -92,6 +99,25 @@ stun2_ip = node['dela']['stun_servers_ip'][1]
 stun1_id = node['dela']['stun_servers_id'][0]
 stun2_id = node['dela']['stun_servers_id'][1]
 
+case node['dela']['report']['type']
+when "none"
+  reportType = "none"
+when "hops"
+  reportType = "tracker"
+  reportURI = "https://hops.site:51081/hops-site/api"
+when "bbc5"
+  reportType = "tracker"
+  reportURI = "https://bbc5.sics.se:43080/hops-site/api"
+when "other"
+  reportType = "tracker"
+  reportURI = node['dela']['report']['tracker']
+when "disk"
+  reportType = "disk"
+  reportURI = "#{node['dela']['home']}/report"
+else
+  reportType = "none"
+end
+
 template "#{node['dela']['home']}/conf/application.conf" do
   source "application.conf.erb" 
   owner node['dela']['user']
@@ -101,9 +127,12 @@ template "#{node['dela']['home']}/conf/application.conf" do
      :stun1_ip => stun1_ip,
      :stun2_ip => stun2_ip,
      :stun1_id => stun1_id,
-     :stun2_id => stun2_id
+     :stun2_id => stun2_id,
+     :reportType => reportType,
+     :reportURI => reportURI
   })
 end
+
 
 template "#{node['dela']['home']}/conf/config.yml" do
   source "config.yml.erb" 

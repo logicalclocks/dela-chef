@@ -29,7 +29,6 @@ nat.detection.stunView {
     }
 }
 webservice.server= "<%= node['dela']['home'] %>/conf/config.yml"
-report.dir = "<%= node['dela']['home'] %>"
 
 hops.storage.type = <%= node['dela']['hops']['storage']['type'] %>
 hops.library.type = <%= node['dela']['hops']['library']['type'] %>
@@ -43,3 +42,9 @@ hops.library.mysql.user = <%= node['mysql']['user'] %>
 hops.library.mysql.password = <%= node['mysql']['password'] %>
 <% end %> 
 
+<% if @reportType == "disk" %>
+report.dir = "<%= @reportURI %>"
+<% end %> 
+<% if @reportType == "tracker" %>
+report.tracker = <%= @reportURI %>
+<% end %> 
