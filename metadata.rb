@@ -124,8 +124,8 @@ attribute "install/dir",
 ##### tracker
 attribute "dela/report/type",
           :description => "Report type: none/disk/hops/bbc5/other. Default value is hops",
-          :type => 'string',
+          :type => 'string'
 
 attribute "dela/report/tracker",
           :description => "Tracker url when used in conjunction with type:other",
-          :type => 'string',
+          :type => 'string'
