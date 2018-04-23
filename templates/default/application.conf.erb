@@ -28,14 +28,11 @@ nat.detection.stunView {
         id = "<%= @stun2_id %>"
     }
 }
-webservice.server= "<%= node['dela']['home'] %>/conf/config.yml"
 
 hops.storage.type = <%= node['dela']['hops']['storage']['type'] %>
 hops.library.type = <%= node['dela']['hops']['library']['type'] %>
 
-<% if node['dela']['hops']['library']['type'] == "DISK" %>
-hops.library.disk.summary = "<%= node['dela']['home'] %>/library.summary"
-<% else %> 
+<% if node['dela']['hops']['library']['type'] == "MYSQL" %>
 hops.library.mysql.ip = <%= node['dela']['mysql']['ip'] %>
 hops.library.mysql.port = <%= node['dela']['mysql']['port'] %>
 hops.library.mysql.user = <%= node['mysql']['user'] %>

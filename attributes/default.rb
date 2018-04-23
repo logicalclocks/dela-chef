@@ -10,7 +10,7 @@ default['dela']['public_ips']            = ['10.0.2.15']
 default['dela']['private_ips']           = ['10.0.2.15']
 default['dela']['systemd']               = "true"
 
-default['dela']['version']               = "0.0.3"
+default['dela']['version']               = "0.1.0"
 
 default['dela']['url']                   = "#{node['download_url']}/dela/dela-#{node['dela']['version']}.jar"
 default['dela']['dir']                   = node['install']['dir'].empty? ? "/srv/hops" : node['install']['dir']
