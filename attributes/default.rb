@@ -10,7 +10,7 @@ default['dela']['public_ips']            = ['10.0.2.15']
 default['dela']['private_ips']           = ['10.0.2.15']
 default['dela']['systemd']               = "true"
 
-default['dela']['version']               = "0.2"
+default['dela']['version']               = "0.0.3"
 
 default['dela']['url']                   = "#{node['download_url']}/dela/dela-#{node['dela']['version']}.jar"
 default['dela']['dir']                   = node['install']['dir'].empty? ? "/srv/hops" : node['install']['dir']
@@ -34,4 +34,5 @@ default['dela']['stun_port2']            = 42013
 default['dela']['http_admin_port']       = 42014
 default['dela']['hops']['storage']['type'] = "HDFS"
 default['dela']['hops']['library']['type'] = "DISK"
-
+default['dela']['report']['type']        = "hops"
+default['dela']['report']['tracker']     = "https://hops.site:51081/hops-site/api"

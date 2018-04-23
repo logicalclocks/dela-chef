@@ -3,7 +3,7 @@ maintainer       "Alex Ormenisan"
 maintainer_email "aaor@kth.se"
 license          "Apache v2.0"
 description      'Installs/Configures/Runs dela'
-version          "0.2.0"
+version          "0.4.1"
 
 recipe            "dela::install",      "Install dela binaries"
 recipe            "dela::default",      "Basic dela recipe"
@@ -29,6 +29,10 @@ attribute "kagent/enabled",
           :type => "string"
 
 ##### install
+attribute "dela/version",
+          :description => "dela-transfer version",
+          :type => "string"
+
 attribute "dela/group",
           :description => "group parameter value",
           :type => "string"
@@ -116,3 +120,12 @@ attribute "install/dir",
           :description => "Base directory for dela installation (default: '/srv')",
           :type => 'string',
           :required => "required"
+
+##### tracker
+attribute "dela/report/type",
+          :description => "Report type: none/disk/hops/bbc5/other. Default value is hops",
+          :type => 'string'
+
+attribute "dela/report/tracker",
+          :description => "Tracker url when used in conjunction with type:other",
+          :type => 'string'
