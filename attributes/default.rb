@@ -12,7 +12,7 @@ default['dela']['systemd']               = "true"
 
 default['dela']['version']               = "0.1.0"
 
-default['dela']['url']                   = "#{node['download_url']}/dela/dela-#{node['dela']['version']}.jar"
+default['dela']['url']                   = "#{node['download_url']}/dela/#{node['dela']['version']}/dela.jar"
 default['dela']['dir']                   = node['install']['dir'].empty? ? "/srv/hops" : node['install']['dir']
 default['dela']['base_dir']              = node['dela']['dir'] + "/dela"
 default['dela']['home']                  = node['dela']['base_dir'] + "-" + node['dela']['version']
