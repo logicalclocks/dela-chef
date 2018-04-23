@@ -33,6 +33,10 @@ attribute "dela/version",
           :description => "dela-transfer version",
           :type => "string"
 
+attribute "dela/url",
+          :description => "dela-transfer download url",
+          :type => "string"
+
 attribute "dela/group",
           :description => "group parameter value",
           :type => "string"
