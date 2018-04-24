@@ -43,5 +43,5 @@ hops.library.mysql.password = <%= node['mysql']['password'] %>
 report.dir = "<%= @reportURI %>"
 <% end %> 
 <% if @reportType == "tracker" %>
-report.tracker = <%= @reportURI %>
+report.tracker = "<%= @reportURI %>"
 <% end %>  
