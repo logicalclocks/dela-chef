@@ -100,16 +100,6 @@ attribute "dela/hops/library/type",
           :type => "string"
 
 ##### hopsworks
-attribute "dela/mysql/ip",
-          :description => "Mysql server ip",
-          :type => 'string',
-          :required => "required"
-
-attribute "dela/mysql/port",
-          :description => "MySql server port",
-          :type => 'string',
-          :required => "required"
-
 attribute "mysql/user",
           :description => "Mysql server username",
           :type => 'string',

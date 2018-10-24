@@ -1,6 +1,14 @@
 
 include_recipe "java"
 
+begin
+  mysqlIp = private_recipe_ip("ndb","mysqld")
+rescue
+  mysqlIp = ""
+  Chef::Log.warn "could not find the ndb server ip for HopsWorks!"
+end
+mysqlPort = node['ndb']['mysql_port']
+
 user node['dela']['user'] do
   home "/home/#{node['dela']['user']}"
   system true
@@ -129,7 +137,9 @@ template "#{node['dela']['home']}/conf/application.conf" do
      :stun1_id => stun1_id,
      :stun2_id => stun2_id,
      :reportType => reportType,
-     :reportURI => reportURI
+     :reportURI => reportURI,
+     :mysqlIp => mysqlIp,
+     :mysqlPort => mysqlPort
   })
 end
 
