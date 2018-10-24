@@ -1,8 +1,15 @@
-http:
-  port: <%= node['dela']['http_port'] %>
-  adminPort: <%= node['dela']['http_admin_port'] %>
-  gzip:
-    enabled: false
+server:
+  applicationConnectors:
+    - type: http
+      port: <%= node['dela']['http_port'] %>
+  adminConnectors:
+    - type: http
+      port: <%= node['dela']['http_admin_port'] %>
+jerseyClient:
+  connectionTimeout: 2000 ms
+  tls:
+    trustSelfSignedCertificates: true
+    verifyHostname: false
 
 logging:
 
@@ -37,11 +44,10 @@ logging:
     "se.sics.nstream.hops.hdfs.HDFSComp": INFO
     "se.sics.nstream.hops.hdfs.HDFSHelper": INFO
     "se.sics.nstream.report.ReportComp": INFO    
-  console:
-      enabled: false
-
-  file:
-      enabled: true
+    
+  appenders:
+    - type: file
       currentLogFilename: <%= node['dela']['logs'] %>
       archivedLogFilenamePattern: <%= node['dela']['base_dir'] %>/dela-%d.log
       archivedFileCount: 10
+
