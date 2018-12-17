@@ -3,7 +3,7 @@ maintainer       "Alex Ormenisan"
 maintainer_email "aaor@kth.se"
 license          "Apache v2.0"
 description      'Installs/Configures/Runs dela'
-version          "0.7.0"
+version          "0.8.0"
 
 recipe            "dela::install",      "Install dela binaries"
 recipe            "dela::default",      "Basic dela recipe"
