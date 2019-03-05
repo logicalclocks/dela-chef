@@ -35,10 +35,11 @@ group node['hops']['group'] do
   append true
 end
 
-directory "#{node['dela']['home']}" do
+directory node['dela']['home'] do
   owner node['dela']['user']
   group node['dela']['group']
   mode "750"
+  recursive true
   action :create
 end
 
