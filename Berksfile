@@ -5,6 +5,6 @@ source 'https://supermarket.chef.io'
 metadata
 
 cookbook 'java'
-cookbook 'kagent', github: "logicalclocks/kagent-chef", branch: "master"
-cookbook 'conda', github: "logicalclocks/conda-chef", branch: "master"
-cookbook 'hops', github: "logicalclocks/hops-hadoop-chef", branch: "master"
+cookbook 'kagent', github: "logicalclocks/kagent-chef", branch: "0.10"
+cookbook 'conda', github: "logicalclocks/conda-chef", branch: "0.10"
+cookbook 'hops', github: "logicalclocks/hops-hadoop-chef", branch: "0.10"
