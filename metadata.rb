@@ -14,10 +14,7 @@ recipe            "dela::purge",        "Stops the dela server and deletes all i
   supports os
 end
 
-depends "kagent"
-depends "java"
-depends "ndb"
-depends "hops"
+depends "java", '~> 7.0.0'
 
 ##### karamel/chef
 attribute "java/jdk_version",
